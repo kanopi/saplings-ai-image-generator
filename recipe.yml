@@ -1,0 +1,36 @@
+name: Saplings AI Image Generator
+type: AI
+description: Installs and configures AI-powered image generation tools.
+install:
+  - ai
+  - ai_media_image
+  - ai_provider_openai
+  - key
+config:
+  strict: false
+  actions:
+    # Create the key entity if it does not exist.
+    key.key.openai_provider:
+      createIfNotExists:
+        langcode: en
+        status: true
+        id: openai_provider
+        label: 'OpenAI Provider'
+        description: 'OpenAI key created at https://platform.openai.com'
+        key_type: authentication
+        key_type_settings: {  }
+        key_provider: file
+        key_provider_settings:
+          file_location: 'private://keys/openai_provider.key'
+          strip_line_breaks: true
+        key_input: none
+        key_input_settings: {  }
+    # Configure the provider to use the key.
+    ai_provider_openai.settings:
+      simpleConfigUpdate:
+        api_key: openai_provider
+    # Configure AI defaults for media image generation.
+    ai.settings:
+      simpleConfigUpdate:
+        default_providers.image_generation.provider_id: openai
+        default_providers.image_generation.model_id: dalle-3

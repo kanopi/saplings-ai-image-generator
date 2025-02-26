@@ -1,0 +1,12 @@
+{
+    "name": "kanopi/saplings-ai-image-generator",
+    "type": "drupal-recipe",
+    "description": "Installs and configures AI-powered image generation tools.",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "drupal/ai": "^1",
+        "drupal/ai_media_image": "^1",
+        "drupal/ai_provider_openai": "^1",
+        "drupal/key": "^1.19"
+    }
+}
