@@ -32,5 +32,5 @@ config:
     # Configure AI defaults for media image generation.
     ai.settings:
       simpleConfigUpdate:
-        default_providers.image_generation.provider_id: openai
-        default_providers.image_generation.model_id: dalle-3
+        default_providers.text_to_image.provider_id: openai
+        default_providers.text_to_image.model_id: dall-e-3
